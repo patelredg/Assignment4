@@ -21,13 +21,11 @@ public class Main {
         int totalLosses = 0;
 
         while (true)
-        {
-            int winCount = 0;
+        {	int winCount = 0;
             int loseCount = 0;
             
-            for (int i = 0; i < 100; i++)
-            {
-            	String name = "Fred";
+            for (int i = 0; i < 1; i++)
+            {	String name = "Fred";
             	int balance = 100;
             	int limit = 0;
                 player = new Player(name, balance);

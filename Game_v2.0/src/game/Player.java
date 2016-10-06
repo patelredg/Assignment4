@@ -29,7 +29,13 @@ public class Player {
 	}
 	
 	public boolean balanceExceedsLimitBy(int amount) {
-		return (balance - amount > limit);
+		// :: BUG 2 ::
+		// incorrect as we have to allow balance - amount = 0  
+		//return (balance - amount > limit);
+		// :: RESOLVING BUG 2 ::		
+		//so, to allow balance - amount = 0, we need to change comparison operator '>' to '>='
+		//System.out.println("Balance Exceed Called Balance :"+balance+ "Amount "+amount + "Limit "+ limit);
+		return (balance - amount >= limit); 
 	}
 	
 	public void takeBet(int bet) {
@@ -40,7 +46,7 @@ public class Player {
 	
 	public void receiveWinnings(int winnings) {
 		if (winnings < 0) throw new IllegalArgumentException("Winnings cannot be negative.");
-		balance = balance + winnings;		
+		balance = balance + winnings;
 	}
 	
 	public String toString() {
