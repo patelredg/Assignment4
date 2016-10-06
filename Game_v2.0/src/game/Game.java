@@ -43,9 +43,15 @@ public class Game {
 		
 		int winnings = matches * bet;
 
-		if (matches > 0) {			
+		if (matches > 0) {
+			// :: BUG 1 ::
+			// bet amount is not summed in winnings, so adding bet amount...
+			// :: RESOLVING BUG 1 ::
+			// winnings = bet_amount + (number of face matched * bet_amount)
+			winnings = bet + winnings;
 			player.receiveWinnings(winnings);
 		}
+		//System.out.println(winnings);
         return winnings;		
 	}
 	
